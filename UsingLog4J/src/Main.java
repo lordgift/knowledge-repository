@@ -9,6 +9,7 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
+		/* order by log4j level */
 		log.trace("trace");
 		log.debug("debug");
 		log.info("info");
