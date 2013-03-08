@@ -6,6 +6,8 @@ import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 import org.jboss.resteasy.specimpl.MultivaluedMapImpl;
 
+import app.bean.Person;
+
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
@@ -21,9 +23,11 @@ public class CallingExample {
 			String url = "http://localhost:8080/RestStarter/rest/Connector/getHelloText";
 			WebResource webResource = client.resource(url);
 			
-			System.out.println(getHelloTextBySendFormUrlEnCoded(webResource));	
-			System.out.println();
-			System.out.println(getHelloTextByJson(webResource));
+//			System.out.println(getHelloTextBySendFormUrlEnCoded(webResource));	
+//			System.out.println();
+//			System.out.println(getHelloTextByJson(webResource));
+			
+			System.out.println(getHelloTextByBean(webResource));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -63,5 +67,20 @@ public class CallingExample {
 
 		return output;
 	}
+	private static String getHelloTextByBean(WebResource webResource) throws JSONException {
+		String output;
+		ClientResponse response;
+		
+		
+		Person person = new Person();		
+		person.setFirstname("dddd");
+		person.setLastname("xxxx");
+		
+		
+		response = webResource.type(MediaType.APPLICATION_JSON).post(ClientResponse.class, person);
+		output = response.getEntity(String.class);
 
+		return output;
+	}
 }
+/* object , array in object*/
