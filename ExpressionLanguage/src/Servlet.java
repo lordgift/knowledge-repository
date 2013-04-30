@@ -1,6 +1,9 @@
 
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,6 +41,13 @@ public class Servlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		session.setAttribute("sesParam1", "YOOOOHH");
+		
+		List<String> datas = new ArrayList<String>();
+		datas.add("data1");
+		datas.add("data2");
+		datas.add("data3");
+		datas.add("data4");
+		session.setAttribute("datas", datas);
 		
 		response.sendRedirect("index.jsp?a=6");
 	}
