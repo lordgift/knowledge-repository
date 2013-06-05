@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+	<h:form>
+		<f:view>
+
+			<h:form id="helloForm">
+				<h:outputText value="#{person.prompt}" />
+
+				<h:inputText id="nameInput" value="#{person.personName}">
+					<f:ajax execute="nameInput" render="nameOutput" event="keyup" />
+				</h:inputText>
+
+				<h:commandButton value="go" action="#{person.doSomething}">
+					<f:ajax execute="@form" render="upper" ></f:ajax>
+				</h:commandButton>
+
+
+
+				<h:outputText id="nameOutput" value="#{person.personName}" />
+				<h:outputText id="upper" value="#{person.personNameUpper}" />
+			</h:form>
+		</f:view>
+	</h:form>
+</h:body>
+</html>
