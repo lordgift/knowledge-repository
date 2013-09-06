@@ -18,26 +18,14 @@ import javax.servlet.http.HttpSession;
 public class Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Servlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("POST");
+		getServletContext().setAttribute("test", "application");
+		request.setAttribute("test", "request");
+		request.getSession().setAttribute("test","session");
+		
 
 		HttpSession session = request.getSession();
 		session.setAttribute("sesParam1", "YOOOOHH");
@@ -49,7 +37,7 @@ public class Servlet extends HttpServlet {
 		datas.add("data4");
 		session.setAttribute("datas", datas);
 		
-		response.sendRedirect("index.jsp?a=6");
+		request.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 	}
 
 }

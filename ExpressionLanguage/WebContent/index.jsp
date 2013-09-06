@@ -11,12 +11,60 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="./Servlet" method="post">
-		<input type="submit"/>
-	</form>
-	post param a = ${param.a} <BR/>
-	session param sesParam1 = ${sessionScope.sesParam1}
+	<%
+		pageContext.setAttribute("test", "page");
+	%>
 	
+	<input type="button" value="setAttibutes" onclick="location.href='Servlet'"/>
+	<input type="button" value="setParamTextbox" onclick="location.href='index.jsp?textbox=text'"/>
+	<input type="button" value="setParamTextbox" onclick="location.href='index.jsp?textbox=textarea'"/>
+	
+	<BR/><BR/>
+	applicationScope.test => ${applicationScope.test } <BR/>
+	application.getAttribute("test") => <%=application.getAttribute("test") %><BR/><BR/>
+	
+	sessionScope.test => ${sessionScope.test} <BR/>
+	session.getAttribute("test") => <%=session.getAttribute("test") %><BR/><BR/>
+	
+	requestScope.test => ${requestScope.test}<BR/>
+	request.getAttribute("test") => <%=request.getAttribute("test") %><BR/><BR/>
+	
+	pageScope.test => ${pageScope.test }<BR/>
+	pageContext.getAttribute("test") => <%= pageContext.getAttribute("test") %><BR/><BR/>
+
+	test => ${test } <BR/>
+	pageContext.findAttribute("test") => <%=pageContext.findAttribute("test") %><BR/><BR/>
+	
+	param.textbox => ${param.textbox}<BR/>
+	request.getParameter("test") => <%=request.getParameter("test") %><BR/><BR/>
+	
+	======================= JSTL c:choose,c:when condition ======================= 
+	<BR/>	
+	<c:choose>
+		<c:when test="${param.textbox eq 'text'}">
+			<input type="text" />
+		</c:when>
+		<c:when test="${param.textbox eq 'textarea'}">
+			<textarea></textarea>
+		</c:when>
+		<c:otherwise>
+			Out of case
+    	</c:otherwise>
+	</c:choose>
+
+	<BR/>
+	======================= JSTL c:if condition ======================= 
+	<BR/>
+	<c:if test="${param.textbox eq 'text'}">
+		<input type="text" />
+	</c:if>
+	<c:if test="${param.textbox eq 'textarea'}">
+		<textarea></textarea>
+	</c:if>
+	
+	<BR/>
+	======================= JSTL c:forEach iteration =======================
+	<BR/> 	
 	<c:forEach items="${sessionScope.datas}" var="datas">
 		<c:out value="${datas}"></c:out>
 	</c:forEach>
