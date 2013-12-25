@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
 	<display-name>JavaServerFaces</display-name>
 	<welcome-file-list>
-		<welcome-file>sample.jsf</welcome-file>
+		<welcome-file>faces/indexjsf.xhtml</welcome-file>
 	</welcome-file-list>
 	
 	<servlet>
@@ -14,6 +14,7 @@
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.jsf</url-pattern>
+		<url-pattern>/faces/*</url-pattern>
 	</servlet-mapping>
 
 </web-app>
