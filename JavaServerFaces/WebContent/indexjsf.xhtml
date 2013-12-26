@@ -4,26 +4,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
 
 <h:body>
-	<h:form prependId="false">
-		<f:view>
-
-			<h:form id="helloForm">
+<h:form>
 				<h:outputText value="#{person.prompt}" />
 
-				<h:inputText id="nameInput" value="#{person.personName}">
-					<f:ajax execute="nameInput" render="nameOutput" event="keyup" />
-				</h:inputText>
+				<h:inputText id="nameInput" value="#{person.personName}"/>				
 
 				<h:commandButton value="go" action="#{person.doSomething}">
 					<f:ajax execute="@form" render="upper" ></f:ajax>
 				</h:commandButton>
 
 
-
 				<h:outputText id="nameOutput" value="#{person.personName}" />
+				<br />
 				<h:outputText id="upper" value="#{person.personNameUpper}" />
-			</h:form>
-		</f:view>
-	</h:form>
+				<br />
+				</h:form>
 </h:body>
 </html>
