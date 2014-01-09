@@ -42,8 +42,8 @@ public class PersonBean {
 		personName = name;
 	}
 
-	public void doSomething() {
-		setPersonNameUpper(personName.toUpperCase());
+	public void doUppercase() {
+		personNameUpper = personName.toUpperCase();
 	}
 
 }

@@ -3,21 +3,28 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
 
+<h:head>
+	<!-- prevent ERROR "mojarra is not defined" -->
+</h:head>
+
 <h:body>
-<h:form>
-				<h:outputText value="#{person.prompt}" />
+	<h:form>
+		<h:outputText value="#{person.prompt}" />
 
-				<h:inputText id="nameInput" value="#{person.personName}"/>				
+		<h:inputText id="nameInput" value="#{person.personName}">
+			<f:ajax event="keyup" render="nameOutput" listener="#{person.doUppercase}" />
+		</h:inputText>
 
-				<h:commandButton value="go" action="#{person.doSomething}">
-					<f:ajax execute="@form" render="upper" ></f:ajax>
-				</h:commandButton>
+		<h:commandButton value="go" action="#{person.doUppercase}">
+			<f:ajax execute="@form" render="personNameUpper" />
+		</h:commandButton>
 
 
-				<h:outputText id="nameOutput" value="#{person.personName}" />
-				<br />
-				<h:outputText id="upper" value="#{person.personNameUpper}" />
-				<br />
-				</h:form>
+		<BR />
+		<h:outputText id="nameOutput" value="#{person.personName}" />
+		<BR />
+		<h:outputText id="personNameUpper" value="#{person.personNameUpper}" />
+		<BR />
+	</h:form>
 </h:body>
 </html>
