@@ -7,6 +7,9 @@
 <title>Insert title hereX</title>
 </head>
 <body>
-
+<%
+String s ="D";
+out.println(s);
+%>
 </body>
 </html>

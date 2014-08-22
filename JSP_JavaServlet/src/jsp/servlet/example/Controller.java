@@ -13,11 +13,12 @@ public class Controller extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		System.out.println("this is Controller.doGet");
+		getServletContext().getRequestDispatcher("/Servlet").forward(request, response);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		 System.out.println("this is Controller.doPost");
 	}
 }
