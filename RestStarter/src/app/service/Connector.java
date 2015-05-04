@@ -1,12 +1,6 @@
 package app.service;
 
-import java.util.Iterator;
-import java.util.List;
-
-import javax.ws.rs.Consumes;
-import javax.ws.rs.FormParam;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 import org.codehaus.jettison.json.JSONArray;
@@ -17,6 +11,35 @@ import app.bean.Person;
 @Path("Connector")
 public class Connector {
 
+	@POST
+	@Path("login")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String login(@FormParam("username") String username, @FormParam("password") String password) {
+		try {
+			
+//			while(iterator.hasNext()){
+//				result.append(iterator.next().getFirstname());
+//				result.append(iterator.next().getLastname());
+//			}
+			
+			
+			JSONObject obj = new JSONObject();
+			obj.append("status", true);
+			obj.append("message", "welcome");
+			
+			
+
+			return obj.toString();
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "Service Error";
+		}
+	}
+
+	
 //	@POST
 //	@Path("getHelloText")
 //	@Consumes(MediaType.APPLICATION_JSON)

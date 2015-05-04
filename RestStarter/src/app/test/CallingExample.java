@@ -24,14 +24,14 @@ public class CallingExample {
 		try {
 			Client client = Client.create();
  
-			String url = "http://localhost:8089/RestStarter/rest/Connector/getHelloText";
+			String url = "http://localhost:8080/RestStarter/rest/Connector/getHelloText";
 			WebResource webResource = client.resource(url);
 			
 			System.out.println(getHelloTextBySendFormUrlEnCoded(webResource));	
 //			System.out.println();
 //			System.out.println(getHelloTextByJson(webResource));
 			
-			System.out.println(getHelloTextByBean(webResource));
+//			System.out.println(getHelloTextByBean(webResource));
 //			System.out.println(getHelloTextByArray(webResource));
 
 		} catch (Exception e) {
@@ -44,7 +44,7 @@ public class CallingExample {
 	private static String getHelloTextByJson(WebResource webResource) throws JSONException {
 		String output;
 		ClientResponse response;
-		JSONObject json = new JSONObject();		
+		JSONObject json = new JSONObject();
 		json.put("firstname", "Gift");
 		json.put("lastname", "Yoh");
 //			json.put("firstname", "Gift<<"); /* json will put single if duplicate key */
