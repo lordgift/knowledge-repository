@@ -45,5 +45,4 @@ public class PersonBean {
 	public void doUppercase() {
 		personNameUpper = personName.toUpperCase();
 	}
-
 }

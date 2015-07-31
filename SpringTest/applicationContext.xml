@@ -6,6 +6,6 @@
     <bean id="springCalPlus" class="springTest.springCal.SpringCalPlus" />
     
     <bean id="springCalManager" class="springTest.springCal.SpringCalManager">
-         <property name="springInterface" ref="springCalPlus" />
+         <property name="springInterface" ref="springCalMinus" />
     </bean>
 </beans>
