@@ -1,10 +1,21 @@
 package app.test;
 
+<<<<<<< HEAD
 import java.io.*;
 import java.math.BigDecimal;
 import java.net.*;
+=======
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+>>>>>>> 56ef19c83ed48ff695124929d4aee6cbd90ccff0
 import java.util.ArrayList;
 import java.util.List;
+
+import javafx.util.Pair;
 
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
@@ -14,9 +25,15 @@ import org.codehaus.jettison.json.*;
 import app.bean.Person;
 
 import com.google.gson.Gson;
+<<<<<<< HEAD
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.core.util.MultivaluedMapImpl;
+=======
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.WebResource;
+>>>>>>> 56ef19c83ed48ff695124929d4aee6cbd90ccff0
 
 public class CallingExample {
 
@@ -35,19 +52,30 @@ public class CallingExample {
 //			System.out.println(getHelloTextByBean(webResource));
 //			System.out.println(getHelloTextByArray(webResource));
 
+<<<<<<< HEAD
 //			androidStyleWebservice();
 
 
 			
+=======
+			androidStyleWebservice();
+
+>>>>>>> 56ef19c83ed48ff695124929d4aee6cbd90ccff0
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 	}
 
+<<<<<<< HEAD
 	private static void androidStyleWebservice() throws JSONException, IOException {
 
 		URL url = new URL("http://157.179.132.233:8080/RestStarter/rest/Connector/getJobToMobile");
+=======
+	private static void androidStyleWebservice() throws IOException, JSONException {
+
+		URL url = new URL("http://localhost:8080/RestStarter/rest/Connector/getJobToMobile");
+>>>>>>> 56ef19c83ed48ff695124929d4aee6cbd90ccff0
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		con.setDoOutput(true);
 		con.setDoInput(true);
@@ -61,6 +89,7 @@ public class CallingExample {
 		con.setUseCaches(false);
 
 		DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+<<<<<<< HEAD
 //		
 //		
 //		
@@ -77,6 +106,23 @@ public class CallingExample {
 //		wr.writeBytes(new Gson().toJson(p));
 		
 		wr.writeBytes("{\"firstname\":\"LORD\",\"lastname\":\"Gift\"}");
+=======
+		
+		
+		
+		Pair<String, String> pair = new  Pair<String, String>("paramKey1", "paramVal1");
+		Pair<String, String> pair2 = new  Pair<String, String>("paramKey2", "paramVal2");
+		Pair<String, String> pair3 = new  Pair<String, String>("paramKey3", "paramVal3");
+		wr.writeBytes(new Gson().toJson(pair));
+		wr.writeBytes(new Gson().toJson(pair2));
+		wr.writeBytes(new Gson().toJson(pair3));
+		
+		Person p = new Person();
+		p.setFirstname("Lord");
+		p.setLastname("Gift");
+		
+		wr.writeBytes(new Gson().toJson(p));
+>>>>>>> 56ef19c83ed48ff695124929d4aee6cbd90ccff0
 
 		wr.flush();
 		wr.close();

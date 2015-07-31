@@ -29,6 +29,7 @@ public class Connector {
 			return "Service Error";
 		}
 	}
+<<<<<<< HEAD
 	
 	
 	
@@ -49,6 +50,8 @@ public class Connector {
 	
 	
 	
+=======
+>>>>>>> 56ef19c83ed48ff695124929d4aee6cbd90ccff0
 
 	@POST
 	@Path("login")
